@@ -1,0 +1,32 @@
+<cars>
+    <car id="0">
+        <model>2020</model>
+        <name>Audi</name>
+        <engine>1,395 cc</engine>
+        <price>PKR 81,000,000</price>
+    </car>
+    <car id="1">
+        <model>2013</model>
+        <name>Ferrari</name>
+        <engine>3902 cc</engine>
+        <price>PKR 98,125,000</price>
+    </car>
+    <car id="2">
+        <model>2008</model>
+        <name>Lamborghini</name>
+        <engine>6498 cc</engine>
+        <price>PKR 3,00,00000</price>
+    </car>
+    <car id="3">
+        <model>2024</model>
+        <name>Toyota Corolla</name>
+        <engine>1298 - 1800 cc</engine>
+        <price>PKR 5,969,000</price>
+    </car>
+    <car id="4">
+        <model>2017</model>
+        <name>Honda Civic</name>
+        <engine>1498 cc</engine>
+        <price>PKR 8,659,000</price>
+    </car>
+</cars>

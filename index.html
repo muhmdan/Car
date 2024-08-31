@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Website</title>
+</head>
+<body>
+   <div id="car-display">
+    <div class="car-buttons">
+        <button onclick="displayCar(0)">Audi 2020</button>
+        <button onclick="displayCar(1)">Ferrari 2013</button>
+        <button onclick="displayCar(2)">Lamborghini 2008</button>
+        <button onclick="displayCar(3)">Toyota Corolla 2024</button>
+        <button onclick="displayCar(4)">Honda Civic 2017</button>
+    </div>
+    <div class="car-info">
+        <table>
+            <tr>
+                <th>Name</th>
+                <td id="name"></td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td id="model"></td>
+            </tr>
+            <tr>
+                <th>Engine</th>
+                <td id="engine"></td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td id="price"></td>
+            </tr>
+        </table>
+    </div>
+   </div>
+   <script>
+        function fetchXML(callback) {
+            var car = new XMLHttpRequest();
+            car.open("GET", "carData.xml", true);
+            car.onreadystatechange = function() {
+                if (car.readyState === 4 && car.status === 200) {
+                    var xml = car.responseXML;
+                    callback(xml);
+                }
+            };
+            car.send();
+        }
+
+        function displayCar(index) {
+            fetchXML(function(xml) {
+                var car = xml.getElementsByTagName('car')[index];
+                var model = car.getElementsByTagName('model')[0].textContent;
+                var name = car.getElementsByTagName('name')[0].textContent;
+                var engine = car.getElementsByTagName('engine')[0].textContent;
+                var price = car.getElementsByTagName('price')[0].textContent;
+
+                document.getElementById('model').innerText = model;
+                document.getElementById('name').innerText = name;
+                document.getElementById('engine').innerText = engine;
+                document.getElementById('price').innerText = price;
+            });
+        }
+   </script>
+</body>
+</html>
